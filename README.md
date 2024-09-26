@@ -1,65 +1,19 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3YVg2wK-)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16173877&assignment_repo_type=AssignmentRepo)
-# Atividade 3
+  
+### Após essa implementação observamos: 
 
+- **Na classe `CorpoHumano`, inclua a linha `c1.massa = "2";` logo depois de instanciar o objeto `c1`.**
 
+  **Situação:** Um erro de compilação foi gerado.  
+  Isso ocorreu devido ao atributo `massa` ser privado, ou seja, ele não pode ser acessado ou modificado diretamente fora da classe `CorpoHumano`. Para alterar o valor de `massa`, é necessário usar o método `setMassa()`.
 
-## Sumário 
-- [Como Utilizar Esse Projteto](#como-utilizar-esse-projeto-)
-- [Desafio da Atividade](#desafio-da-atividade-)
-- [No Microsoft Teams](#no-microsoft-teams--)
-- [Regras](#regras-)
-- [Feedback](#feedback-)
+- **Na classe `CorpoHumano`, alterando a linha `private double massa` para `public double massa`.**
 
-## Como Utilizar Esse Projeto 📁
+  **Situação:** Após essa alteração, será possível acessar e modificar o atributo `massa` diretamente através do objeto `c1` (por exemplo, `c1.massa = 2`).  
+  Ao tornar o atributo público, o encapsulamento é quebrado, permitindo que outros objetos ou classes modifiquem diretamente o valor do atributo, o que pode gerar inconsistências no controle dos dados da classe. O uso de modificadores de acesso privados e de métodos setters/getters é uma boa prática de programação para proteger os atributos da classe.
 
-- Nesse projeto há  pasta:
-    - FazerVsCode:Exclusiva para realizar no VisualStudio Code. 
+- **Na classe `CorpoHumano`, alterando a linha `public void setVolume(double entVolume)` para `private void setVolume(double entVolume)`.**
 
-- Na sua máquina tem que ter instalado o <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank">Java Development Kit (JDK) </a> 
-- Caso utilize o VisualStudio Code é necessário que instale a <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack" target="_blank">Extension Pack for Java</a>
-
-
-## Escopo da Atividade 🛠️
-
-- Implementar uma classe que seja capaz de simular atuação dos modificadores de acesso e respectivamente os métodos getters/setters: 
-- Implemente a Classe Corpo Humano e o Construtor  
-- Implemente os métodos Getters
-- Implemente os métodos Setters
-- Implemente uma classe main que inclua as seguintes informações: Massa, Volume e Densidade
-
-
-
-### Após essa implementação responda:
-
-- Na classe Corpo_Humano inclua a linha c1.massa = "2"; logo depois de instanciar o objeto c1. Qual foi a ocorrência? Qual a conclusão sobre o que aconteceu?
-- Na classe Corpo_Humano altere a linha private float Massa para public float Massa; Qual foi a ocorrência? Qual a conclusão sobre o que aconteceu?
-- Na classe Corpo_Humano altere a linha public setVolume (float volume) para private setVolume (float volume).Qual foi a ocorrência? Qual a conclusão sobre o que aconteceu?
-
-
-<b>Colocar essa informação no Readme do Git ou Em comentários de código na classe main </b>
-
-
-## DESAFIO 🚀
-
-Implementar o Atributo e os Metodos de acesso para Altura;
-Criar um método para calcular o Indíce de Massa Corporal (IMC), sendo:
-IMC = Massa/Altura
-Exibir/Imprimir o IMC na classe main
-
-
-## No Microsoft Teams  👥
-
-- Não há necessidade fazer o upload do projeto 
-- Caso tenha realizado em dupla, mencione o NOME e RGM da dupla lá no Teams em um arquivo .txt
-
-## Regras 📄
-
-- Utilize as boas práticas de programação que são sempre mencionadas em aula e nos materiais; 
-- Observe sempre os modificadores de acesso em atributos e métodos;
-- Observe os nomes de classes e atributos;
-- Utilze comentários para elucidar o cenário elaborado;
-
-## Feedback 📨
--  Sua atividade receberá uma pontuação de 0 a 10, que compõe a Nota de Atividades da M1;
--  A nota será atribuída no Microsoft Teams
+  **Situação:** Depois de fazer essa alteração, o método `setVolume()` não poderá ser acessado fora da classe `CorpoHumano`. Se tentar invocar o método em outro lugar (como na classe `main`), gera um erro de compilação.  
+  Torná-lo um método privado impede que ele seja acessado por outras classes, ou seja, o volume não pode mais ser modificado diretamente após a criação do objeto. Isso mostra a importância de controlar o acesso aos métodos que alteram o estado dos atributos, restringindo alterações indesejadas e protegendo a integridade dos dados.
